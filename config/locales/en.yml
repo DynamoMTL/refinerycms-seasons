@@ -1,0 +1,25 @@
+en:
+  shared:
+    admin:
+      image_picker:
+        image: image
+  plugins:
+    seasons:
+      title: Seasons
+  admin:
+    seasons:
+      actions:
+        create_new: Add New Season
+        reorder: Reorder Seasons
+        reorder_done: Done Reordering Seasons
+      records:
+        title: Seasons
+        sorry_no_results: Sorry! There are no results found.
+        no_items_yet: There are no Seasons yet. Click "Add New Season" to add your first season.
+      season:
+        view_live_html: View this season live <br/><em>(opens in a new window)</em>
+        edit: Edit this season
+        delete: Remove this season forever
+  seasons:
+    show:
+      other: Other Seasons

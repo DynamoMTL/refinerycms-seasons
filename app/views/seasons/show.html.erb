@@ -1,0 +1,33 @@
+<% content_for :body_content_title do %>
+  <%= @season.title %>
+<% end %>
+
+<% content_for :body_content_left do %>
+  <section>
+    <h1>State Date</h1>
+    <p>
+      <%=raw @season.state_date %>
+    </p>
+  </section>
+  <section>
+    <h1>Active</h1>
+    <p>
+      <%=raw @season.active %>
+    </p>
+  </section>
+<% end %>
+
+<% content_for :body_content_right do %>
+  <aside>
+    <h2><%= t('.other') %></h2>
+    <ul id="seasons">
+      <% @seasons.each do |season| %>
+        <li>
+          <%= link_to season.title, season_path(season) %>
+        </li>
+      <% end %>
+    </ul>
+  </aside>
+<% end %>
+
+<%= render :partial => "/shared/content_page" %>

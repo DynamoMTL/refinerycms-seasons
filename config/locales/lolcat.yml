@@ -1,0 +1,25 @@
+lolcat:
+  shared:
+    admin:
+      image_picker:
+        image: IMAGE
+  plugins:
+    seasons:
+      title: Seasons
+  admin:
+    seasons:
+      actions:
+        create_new: CREATE NEW Season
+        reorder: REORDR Seasons
+        reorder_done: DUN REORDERIN Seasons
+      records:
+        title: Seasons
+        sorry_no_results: SRY! THAR R NO RESULTS FINDZ.
+        no_items_yet: THAR R NO Seasons YET. CLICK "CREATE NEW Season" 2 ADD UR FURST season.
+      season:
+        view_live_html: VIEW DIS season LIV <BR/><EM>(OPENS IN NEW WINDOW)</EM>
+        edit: EDIT DIS season
+        delete: REMOOV DIS season FOREVR
+  seasons:
+    show:
+      other: OTHR Seasons

@@ -1,0 +1,21 @@
+nl:
+  plugins:
+    seasons:
+      title: Seasons
+  admin:
+    seasons:
+      actions:
+        create_new: Maak een nieuwe Season
+        reorder: Wijzig de volgorde van de Seasons
+        reorder_done: Klaar met het wijzingen van de volgorde van de Seasons
+      records:
+        title: Seasons
+        sorry_no_results: Helaas! Er zijn geen resultaten gevonden.
+        no_items_yet: Er zijn nog geen Seasons. Druk op 'Maak een nieuwe Season' om de eerste aan te maken.
+      season:
+        view_live_html: Bekijk deze season op de website <br/><em>(opent een nieuw venster)</em>
+        edit: Bewerk deze season
+        delete: Verwijder deze season voor eeuwig
+  seasons:
+    show:
+      other: Andere Seasons

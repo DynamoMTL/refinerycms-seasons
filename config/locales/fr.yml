@@ -1,0 +1,25 @@
+fr:
+  shared:
+    admin:
+      image_picker:
+        image: image
+  plugins:
+    seasons:
+      title: Seasons
+  admin:
+    seasons:
+      actions:
+        create_new: Créer un(e) nouve(au/l/lle) Season
+        reorder: Réordonner les Seasons
+        reorder_done: Fin de réordonnancement des Seasons
+      records:
+        title: Seasons
+        sorry_no_results: "Désolé ! Aucun résultat."
+        no_items_yet: 'Il n''y a actuellement aucun(e) Season. Cliquer sur "Créer un(e) nouve(au/l/lle) Season" pour créer votre premi(er/ère) season.'
+      season:
+        view_live_html: Voir ce(t/tte) season <br/><em>(Ouvre une nouvelle fenêtre)</em>
+        edit: Modifier ce(t/tte) season
+        delete: Supprimer définitivement ce(t/tte) season
+  seasons:
+    show:
+      other: Autres Seasons

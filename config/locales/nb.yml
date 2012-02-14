@@ -1,0 +1,21 @@
+nb:
+  plugins:
+    seasons:
+      title: Seasons
+  admin:
+    seasons:
+      actions:
+        create_new: Lag en ny Season
+        reorder: Endre rekkefølgen på Seasons
+        reorder_done: Ferdig å endre rekkefølgen Seasons
+      records:
+        title: Seasons
+        sorry_no_results: Beklager! Vi fant ikke noen resultater.
+        no_items_yet: Det er ingen Seasons enda. Klikk på "Lag en ny Season" for å legge til din første season.
+      season:
+        view_live_html: Vis hvordan denne season ser ut offentlig <br/><em>(åpner i et nytt vindu)</em>
+        edit: Rediger denne season
+        delete: Fjern denne season permanent
+  seasons:
+    show:
+      other: Andre Seasons
