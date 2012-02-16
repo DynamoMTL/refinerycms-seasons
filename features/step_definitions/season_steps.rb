@@ -12,3 +12,7 @@ Given /^I have active seasons$/ do
   fall = Factory(:season, :name => 'Fall')
   future = Factory(:future_season, :name => 'Future')
 end
+
+When /^I select "([^"]*)" from the season selector$/ do |season|
+  pending # express the regexp above with the code you wish you had
+end
