@@ -14,7 +14,7 @@ Feature: Seasons
     And I should see "Fall"
 
   Scenario: Select a season to manage pages for that season
-    When I select "future" from the season selector
+    When I select "Future" from the season selector
     Then I should see the pages that belong to "future"
     And I should not see pages that belong to "current"
 

@@ -8,11 +8,9 @@ Then /^I should have ([0-9]+) seasons?$/ do |count|
 end
 
 Given /^I have active seasons$/ do
-  spring = Factory(:season, :name => 'Spring')
-  fall = Factory(:season, :name => 'Fall')
-  future = Factory(:future_season, :name => 'Future')
+  Season.count.should be > 0
 end
 
 When /^I select "([^"]*)" from the season selector$/ do |season|
-  pending # express the regexp above with the code you wish you had
+  select(season, :from => 'seasons')
 end

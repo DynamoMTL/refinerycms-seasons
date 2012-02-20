@@ -34,7 +34,7 @@
 
 
 <h2>Currently Editing: <%= @current_season %><h2>
-    Change Seasons: <%= select_tag :seasons, options_from_collection_for_select(Season.all) %>
+    Change Seasons: <%= select_tag :seasons, options_from_collection_for_select(Season.all, 'id', 'name') %>
 
 <% if ::Refinery.i18n_enabled? %>
   <% locales = ::Refinery::I18n.locales.clone %>
