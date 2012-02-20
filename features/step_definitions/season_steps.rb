@@ -11,6 +11,14 @@ Given /^I have active seasons$/ do
   Season.count.should be > 0
 end
 
-When /^I select "([^"]*)" from the season selector$/ do |season|
-  select(season, :from => 'seasons')
+Then /^"([^"]*)" should be the current season$/ do |season|
+  within "ul#current_season" do
+    page.should have_content(season)
+  end
+end
+
+Then /^"([^"]*)" should not be the current season$/ do |season|
+  within "ul#current_season" do
+    page.should_not have_content(season)
+  end
 end

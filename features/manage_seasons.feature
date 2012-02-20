@@ -13,8 +13,9 @@ Feature: Seasons
     Then I should see "Spring"
     And I should see "Fall"
 
+  @javascript
   Scenario: Select a season to manage pages for that season
-    When I select "Future" from the season selector
-    Then I should see the pages that belong to "future"
-    And I should not see pages that belong to "current"
-
+    When I follow "Change Season"
+    And I follow "Future"
+    Then "Future" should be the current season
+    And "Fall" should not be the current season

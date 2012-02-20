@@ -1,3 +1,53 @@
+<style>
+  #actions ul#current_season {
+    margin-top: 30px;
+  }
+  #current_season li a {
+    position: relative;
+    padding-left: 10px;
+  }
+  #current_season li a span {
+    position: absolute;
+    right: 9px;
+    border-bottom: 1px dotted #727272;
+  }
+
+  #other_seasons li:first-child {
+    margin-top: 0px;
+  }
+
+  /* Season picker */
+  #switch_season_picker {
+    margin: 0px;
+    padding: 0px;
+  }
+  #switch_season_picker li {
+    float: left;
+    padding: 0px;
+    margin: 0px 12px 0px 0px;
+    list-style: none;
+  }
+  #switch_season_picker a {
+    border-bottom: 0px none;
+  }
+</style>
+<% content_for :after_javascript_libraries do %>
+<script>
+$(document).ready(function(){
+  $('#current_season li a').click(function(e) {
+      $('#current_season li a span').each(function(span){
+        $(this).css('display', $(this).css('display') == 'none' ? '' : 'none');
+      });
+      $('#other_seasons').animate({opacity: 'toggle', height: 'toggle'}, 250);
+      $('html,body').animate({
+        scrollTop: $('#other_seasons').parent().offset().top
+      }, 250);
+      e.preventDefault();
+    });
+});
+</script>
+<% end -%>
+
 <ul>
   <% if Refinery::Plugins.active.names.include?("refinery_pages") %>
     <li>
@@ -33,9 +83,22 @@
 </ul>
 
 
-<h2>Currently Editing: <%= @current_season %><h2>
-    Change Seasons: <%= select_tag :seasons, options_from_collection_for_select(Season.all, 'id', 'name') %>
-
+<ul id='current_season'>
+  <li>
+    <%= link_to "#" do %>
+      <%= current_season.name %>
+      <span><%= t('change_season') %></span>
+      <span style='display:none;'><%= t('cancel', :scope => 'shared.admin.form_actions') %></span>
+    <% end %>
+  </li>
+</ul>
+<ul id='other_seasons' style='display: none'>
+  <% Season.all.each do |season| %>
+    <li>
+      <%= link_to season.name, params.dup.tap { |p| p[:set_season] = season } %>
+    </li>
+  <% end %>
+</ul>
 <% if ::Refinery.i18n_enabled? %>
   <% locales = ::Refinery::I18n.locales.clone %>
   <% current_locale = ::I18n.locale %>
