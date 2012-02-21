@@ -8,6 +8,10 @@ en:
     seasons:
       title: Seasons
   admin:
+    pages:
+      form_advanced_options:
+        season: Season
+        season_page_help: Choose the season the page should belong to
     seasons:
       actions:
         create_new: Add New Season

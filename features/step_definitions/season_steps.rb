@@ -22,3 +22,11 @@ Then /^"([^"]*)" should not be the current season$/ do |season|
     page.should_not have_content(season)
   end
 end
+
+Given /^"([^"]*)" is the current season$/ do |season|
+  @current_season = Season.find_by_name(season)
+end
+
+Then /^the page should belong to season "([^"]*)"$/ do |season|
+  Page.last.season.should == Season.find_by_name(season)
+end
