@@ -2,6 +2,8 @@ require 'spec_helper'
 
 describe Season do
 
+  it { should have_many(:pages) }
+  it { should have_many(:images) }
 
   describe ".default" do
     let!(:old_season) { Factory(:old_season) }
@@ -12,5 +14,6 @@ describe Season do
     end
   end
 
+  
 
 end
