@@ -23,6 +23,17 @@ module Refinery
       
       refinery.after_inclusion do
         ::ApplicationController.send(:include, ApplicationControllerExtension)
+        ::Admin::PagesController.class_eval do
+          
+          def find_all_pages
+            debugger
+            @pages = Page.where(:season_id => session[:current_season])
+                         .includes([:slugs, :translations, :children])
+                         .order("lft ASC")
+          end
+          
+        end
+        
       end
       config.after_initialize do
         Refinery::Plugin.register do |plugin|
@@ -31,16 +42,6 @@ module Refinery
           plugin.activity = {
             :class => Season
           }
-        end
-        
-        ::Admin::PagesController.class_eval do
-          
-          def find_all_pages
-            @pages = Page.where(:season_id => session[:current_season])
-                         .includes([:slugs, :translations, :children])
-                         .order("lft ASC")
-          end
-          
         end
         
       end

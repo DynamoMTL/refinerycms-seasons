@@ -31,6 +31,7 @@ describe Season do
     it "should copy the first two levels of navigation from the default season after create" do
       new_season = Factory(:future_season, :name => 'New Season')
       new_season.pages.count.should == 2
+      Page.count.should == 5
       new_season.pages.map(&:level).should_not include(2)
     end
   end
