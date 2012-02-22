@@ -14,6 +14,26 @@ describe Season do
     end
   end
 
+  describe "#copy_page_structure_from_default_season" do
+    before(:each) do
+      default_season = Factory(:season, :name => "Default")
+      default_home = Factory(:page, :season => default_season, :title => "Home")
+      default_child1 = Factory(:page, :season => default_season,  :parent => default_home, :title => "Child1")
+      default_child2 = Factory(:page, :season => default_season, :parent => default_child1, :title => "Nested child")
+    end
+
+    it "should receive an after create callback to copy the structure" do
+      new_season = Factory.build(:future_season, :name => 'New Season')
+      new_season.should_receive(:copy_page_structure_from_default_season)
+      new_season.save
+    end
+
+    it "should copy the first two levels of navigation from the default season after create" do
+      new_season = Factory(:future_season, :name => 'New Season')
+      new_season.pages.count.should == 2
+      new_season.pages.map(&:level).should_not include(2)
+    end
+  end
   
 
 end
