@@ -26,7 +26,6 @@ module Refinery
         ::Admin::PagesController.class_eval do
           
           def find_all_pages
-            debugger
             @pages = Page.where(:season_id => session[:current_season])
                          .includes([:slugs, :translations, :children])
                          .order("lft ASC")
