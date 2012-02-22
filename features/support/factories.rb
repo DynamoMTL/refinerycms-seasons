@@ -15,4 +15,8 @@ FactoryGirl.define do
     name "Old Season"
   end
 
+  factory :page do
+    title 'my great page'
+    association :season, :factory => :old_season
+  end
 end

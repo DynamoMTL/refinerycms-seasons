@@ -24,9 +24,18 @@ Then /^"([^"]*)" should not be the current season$/ do |season|
 end
 
 Given /^"([^"]*)" is the current season$/ do |season|
-  @current_season = Season.find_by_name(season)
+  @season = Season.find_by_name(season)
 end
 
 Then /^the page should belong to season "([^"]*)"$/ do |season|
   Page.last.season.should == Season.find_by_name(season)
 end
+
+Given /^the following pages exist:$/ do |table|
+  table.hashes.map do |hash|
+    Factory(:page, :title => hash["title"], 
+            :season_id => Season.find_by_name(hash["season"]).id)
+  end
+
+end
+

@@ -22,6 +22,22 @@ Feature: Seasons
     And I press "Save"
     Then I should see "'Deigan is a wonder dog' was successfully added"
     And the page should belong to season "Spring"
+  
+  @season_switch
+  Scenario: Viewing list of pages for the current season
+    Given the following pages exist:
+      | title           | season  |
+      | Spring Styles   | Spring  | 
+      | Spring Home     | Spring  | 
+      | Fall Styles     | Fall  | 
+      | Fall Home       | Fall  | 
+    When I go to the list of pages
+    And "Spring" is the current season
+    Then I should see "Spring Styles"
+    And I should see "Spring Home"
+    And I should not see "Fall Styles"
+    And I should not see "Fall Home"
+
     
   @javascript
   Scenario: Select a season to manage pages for that season
