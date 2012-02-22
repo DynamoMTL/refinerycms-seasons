@@ -39,3 +39,7 @@ Given /^the following pages exist:$/ do |table|
 
 end
 
+Given /^I have a page titled "([^"]*)" with a custom url "([^"]*)" and belonging to the "([^"]*)" season$/ do |title, link_url, season|
+  Factory(:page, :title => title, :link_url => link_url, :season_id => Season.find_by_name(season).id)
+end
+

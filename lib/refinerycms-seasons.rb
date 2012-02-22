@@ -20,7 +20,10 @@ module Refinery
           Rails.env.production? ? require(c) : load(c)
         end
       end
-
+      
+      refinery.after_inclusion do
+        ::ApplicationController.send(:include, ApplicationControllerExtension)
+      end
       config.after_initialize do
         Refinery::Plugin.register do |plugin|
           plugin.name = "seasons"
@@ -29,6 +32,7 @@ module Refinery
             :class => Season
           }
         end
+        
         ::Admin::PagesController.class_eval do
           
           def find_all_pages
