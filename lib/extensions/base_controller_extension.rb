@@ -5,11 +5,10 @@
 
   def set_season
     if params[:set_season]
-      @season, session[:current_season] = Season.find(params[:set_season])
+      session[:current_season] = Season.find(params[:set_season])
     else
-      @season = session[:current_season].nil? ? Season.default : session[:current_season]
+      session[:current_season] ||= Season.default 
     end
   end
-
 
 end
