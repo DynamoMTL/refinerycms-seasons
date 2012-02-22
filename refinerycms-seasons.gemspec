@@ -7,4 +7,6 @@ Gem::Specification.new do |s|
   s.summary           = 'Seasons engine for Refinery CMS'
   s.require_paths     = %w(lib)
   s.files             = Dir['lib/**/*', 'config/**/*', 'app/**/*']
+  s.authors           = 'Bryan Mahoney'
+  s.homepage          = 'http://github.com/DynamoMTL'
 end
