@@ -26,6 +26,4 @@ if defined?(Season)
     :start_date => 3.months.ago,
     :active => true
   )
-
-  Page.update_all("season_id = #{season.id}")
 end
