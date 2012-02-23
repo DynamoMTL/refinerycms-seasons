@@ -19,3 +19,13 @@ if defined?(Page)
     page.parts.create(:title => default_page_part, :body => nil)
   end
 end
+
+if defined?(Season)
+  season = Season.create(
+    :name => 'Fall/Winter 2012/13', 
+    :start_date => 3.months.ago,
+    :active => true
+  )
+
+  Page.update_all("season_id = #{season.id}")
+end
