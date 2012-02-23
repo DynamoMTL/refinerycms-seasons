@@ -17,16 +17,8 @@ if defined?(User)
 end
 
 if defined?(Page)
-  page = Page.create(
-    :title => 'Seasons',
-    :link_url => '/seasons',
-    :deletable => false,
-    :position => ((Page.maximum(:position, :conditions => {:parent_id => nil}) || -1)+1),
-    :menu_match => '^/seasons(\/|\/.+?|)$'
-  )
-  Page.default_parts.each do |default_page_part|
-    page.parts.create(:title => default_page_part, :body => nil)
-  end
+  
   Page.update_all("season_id = #{season.id}")
+  Image.update_all("season_id = #{season.id}")
 end
 

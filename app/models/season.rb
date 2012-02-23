@@ -19,9 +19,17 @@ class Season < ActiveRecord::Base
 
   def copy_page_structure_from_default_season
     return if self == Season.default
-    Season.default.pages.each do |page|
-      next if page.level > 1
-      pages << page.clone
+    clone_pages(Season.first.pages.where(:parent_id => nil), nil, 0)
+  end
+  
+  def clone_pages(pages, parent=nil, depth)
+    depth += 1
+    return if depth == 3
+    pages.each do |page|
+      cloned_page = page.clone
+      cloned_page.parent = parent
+      self.pages << cloned_page
+      clone_pages(page.children, cloned_page, depth)
     end
   end
 
