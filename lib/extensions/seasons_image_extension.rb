@@ -1,4 +1,4 @@
-module ImageExtension
+module SeasonsImageExtension
   extend ActiveSupport::Concern
 
   included do
@@ -20,4 +20,4 @@ module ImageExtension
   end
 end
 
-::Image.send(:include, ImageExtension)
+::Image.send(:include, SeasonsImageExtension)

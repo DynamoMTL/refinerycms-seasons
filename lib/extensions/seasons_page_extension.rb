@@ -1,4 +1,4 @@
-module PageExtension
+module SeasonsPageExtension
   extend ActiveSupport::Concern
 
   included do
@@ -21,4 +21,4 @@ module PageExtension
   end
 end
 
-::Page.send(:include, PageExtension)
+::Page.send(:include, SeasonsPageExtension)
