@@ -1,3 +1,12 @@
+if defined?(Season)
+  season = Season.create(
+    :name => 'Fall/Winter 2012/13', 
+    :start_date => 3.months.ago,
+    :active => true
+  )
+
+Season.current = season
+end
 if defined?(User)
   User.all.each do |user|
     if user.plugins.where(:name => 'seasons').blank?
@@ -20,10 +29,3 @@ if defined?(Page)
   end
 end
 
-if defined?(Season)
-  season = Season.create(
-    :name => 'Fall/Winter 2012/13', 
-    :start_date => 3.months.ago,
-    :active => true
-  )
-end
