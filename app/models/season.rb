@@ -5,6 +5,8 @@ class Season < ActiveRecord::Base
 
   after_create :copy_page_structure_from_default_season
 
+  cattr_accessor :current
+
   def self.default
     where('start_date < ?', Date.today).order('start_date DESC').first
   end

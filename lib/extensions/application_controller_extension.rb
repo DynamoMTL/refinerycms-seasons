@@ -11,13 +11,14 @@ module ApplicationControllerExtension
       else
         session[:current_season] ||= Season.default 
       end
+      Season.current = session[:current_season]
     end
 
   private
     def find_pages_for_menu
       get_or_set_season
       # scope the find for the current season
-      pages = ::Page.in_season(session[:current_season]).live.in_menu.includes(:slug).order('lft ASC')
+      pages = ::Page.in_season(Season.current).live.in_menu.includes(:slug).order('lft ASC')
 
       # Now we only want to select particular columns to avoid any further queries.
       # Title is retrieved in the next block below so it's not here.

@@ -9,6 +9,7 @@
     else
       session[:current_season] ||= Season.default 
     end
+    Season.current = session[:current_season]
   end
 
 end
