@@ -30,9 +30,13 @@ module Refinery
                          .includes([:slugs, :translations, :children])
                          .order("lft ASC")
           end
-          
         end
-        
+        ::Admin::ImagesController.class_eval do
+          
+          def find_all_images
+            @images = Image.where(:season_id => Season.current).order("created_at DESC")
+          end
+        end
       end
       config.after_initialize do
         Refinery::Plugin.register do |plugin|
