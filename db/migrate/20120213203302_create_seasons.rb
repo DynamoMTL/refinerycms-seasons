@@ -10,6 +10,8 @@ class CreateSeasons < ActiveRecord::Migration
     end
 
     add_index :seasons, :id
+    add_column :images, :season_id, :integer
+    add_column :pages, :season_id, :integer
 
     load(Rails.root.join('db', 'seeds', 'seasons.rb'))
   end
