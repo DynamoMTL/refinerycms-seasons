@@ -1,23 +1,29 @@
 module ApplicationControllerExtension
   extend ActiveSupport::Concern
 
+ included do
+   prepend_before_filter :get_season, :if => :current_user
+   prepend_before_filter :set_season, :if => Proc.new { |c| current_user and params[:set_season] }
+ end
+  
+
   module InstanceMethods
     
     protected
 
-    def get_or_set_season
-      if params[:set_season]
-        session[:current_season] = Season.find(params[:set_season])
-        Rails.cache.clear
-      else
-        session[:current_season] ||= Season.default 
-      end
-      Season.current = session[:current_season]
-    end
+    def get_season
+     redirect_to seasons_path unless session[:current_season]
+     Season.current = session[:current_season]
+   end
+
+   def set_season
+     Rails.cache.clear
+     session[:current_season] = Season.find(params[:set_season])
+   end
 
   private
+
     def find_pages_for_menu
-      get_or_set_season
       # scope the find for the current season
       pages = ::Page.in_season(Season.current).live.in_menu.includes(:slug).order('lft ASC')
 

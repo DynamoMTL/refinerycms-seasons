@@ -5,18 +5,18 @@ Feature: View pages for selected season
   I want to only be presented pages for a selected season
 
   Background:
-    Given A Refinery user exists
+    Given I am a logged in refinery user
     And I have a page titled "Home" with a custom url "/" and belonging to the "Spring" season
     And I have active seasons
-  
-  Scenario: Viewing pages for the default season
-    Given the following pages exist:
+    And the following pages exist:
       | title           | season  |
       | Spring Styles   | Spring  | 
       | Spring Home     | Spring  | 
       | Fall Styles     | Fall    | 
       | Fall Home       | Fall    | 
-    When I go to the home page
+  
+  Scenario: Viewing pages for the default season
+    When I have chosen "Spring" as my season
     Then I should see "Spring Styles"
     And I should see "Spring Home"
     And I should not see "Fall Styles"

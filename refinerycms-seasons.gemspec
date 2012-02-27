@@ -1,7 +1,7 @@
 Gem::Specification.new do |s|
   s.platform          = Gem::Platform::RUBY
   s.name              = 'refinerycms-seasons'
-  s.version           = '1.0.1'
+  s.version           = '1.0.0'
   s.description       = 'Ruby on Rails Seasons engine for Refinery CMS'
   s.date              = '2012-02-14'
   s.summary           = 'Seasons engine for Refinery CMS'

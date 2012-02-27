@@ -2,7 +2,7 @@
   <ul id="seasons">
     <% @seasons.each do |season| %>
       <li>
-        <%= link_to season, season_path(season) %>
+      <%= link_to season.name, root_url(:set_season => season.id) %>
       </li>
     <% end %>
   </ul>

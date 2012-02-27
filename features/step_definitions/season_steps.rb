@@ -43,3 +43,20 @@ Given /^I have a page titled "([^"]*)" with a custom url "([^"]*)" and belonging
   Factory(:page, :title => title, :link_url => link_url, :season_id => Season.find_by_name(season).id)
 end
 
+When /^I visit the admin area$/ do
+  visit("/refinery")
+end
+
+Given /^I have chosen a default season$/ do
+  visit("/seasons")
+  click_link(Season.default.name)
+  
+end
+
+Given /^I have chosen "([^"]*)" as my season$/ do |season|
+  visit("/seasons")
+  click_link(season)
+end
+
+
+

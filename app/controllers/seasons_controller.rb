@@ -1,5 +1,6 @@
 class SeasonsController < ApplicationController
 
+  skip_filter :get_season, :only => [:index]
   before_filter :find_all_seasons
   before_filter :find_page
 

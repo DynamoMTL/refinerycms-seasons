@@ -6,6 +6,7 @@ Feature: Seasons
 
   Background:
     Given I am a logged in refinery user
+    And I have chosen a default season
     And I have active seasons
 
   Scenario: List Seasons
@@ -41,7 +42,8 @@ Feature: Seasons
     
   @javascript
   Scenario: Select a season to manage pages for that season
-    When I follow "Change Season"
+    When I visit the admin area
+    And I follow "Change Season"
     And I follow "Future"
     Then "Future" should be the current season
     And "Fall" should not be the current season
