@@ -8,6 +8,7 @@ module ApplicationControllerExtension
     def get_or_set_season
       if params[:set_season]
         session[:current_season] = Season.find(params[:set_season])
+        Rails.cache.clear
       else
         session[:current_season] ||= Season.default 
       end
