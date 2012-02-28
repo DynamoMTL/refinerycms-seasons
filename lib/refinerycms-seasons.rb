@@ -33,7 +33,7 @@ module Refinery
         end
         ::Admin::ImagesController.class_eval do
           
-          def find_all_images
+          def find_all_images(conditions = {})
             @images = Image.where(:season_id => Season.current).order("created_at DESC")
           end
         end
