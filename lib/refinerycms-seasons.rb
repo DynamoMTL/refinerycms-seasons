@@ -23,6 +23,7 @@ module Refinery
       
       refinery.after_inclusion do
         ::ApplicationController.send(:include, ApplicationControllerExtension)
+        ::PagesController.send(:include, SeasonsPagesControllerExtension)
         ::Admin::PagesController.class_eval do
           
           def find_all_pages
